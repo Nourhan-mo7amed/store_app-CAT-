@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "589420285489",
+    "project_id": "store-app-cee16",
+    "storage_bucket": "store-app-cee16.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589420285489:android:33c220d57099f414cc0f10",
+        "android_client_info": {
+          "package_name": "com.example.store_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDldEic19tuv3rekxMNLDaAkTGlLIZA_IA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

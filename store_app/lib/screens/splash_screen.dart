@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../core/app_colors.dart';
 import '../cubits/splash/splash_cubit.dart';
 import '../cubits/splash/splash_state.dart';
+import 'home_screen.dart';
 import 'onbording.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -17,9 +19,13 @@ class SplashScreen extends StatelessWidget {
             previous.status != current.status &&
             current.status == SplashStatus.completed,
         listener: (context, state) {
+          final user = FirebaseAuth.instance.currentUser;
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (_) => const OnBoardingScreen()),
+            MaterialPageRoute(
+              builder: (_) =>
+                  user != null ? const HomeScreen() : const OnBoardingScreen(),
+            ),
           );
         },
         child: const Scaffold(
@@ -41,7 +47,7 @@ class SplashScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Fast Food',
+                  'Store App',
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,

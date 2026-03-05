@@ -4,8 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../core/app_colors.dart';
 import '../cubits/onboarding/onboarding_cubit.dart';
 import '../cubits/onboarding/onboarding_state.dart';
-import 'home_screen.dart';
-
+import 'auth/login_screen.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -35,10 +34,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     },
   ];
 
-  void _goToHome() {
+  void _goToAuth() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (_) => const HomeScreen()),
+      MaterialPageRoute(builder: (_) => const LoginScreen()),
     );
   }
 
@@ -115,7 +114,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         onPressed: () {
                           final cubit = context.read<OnboardingCubit>();
                           if (cubit.isLastPage(_onboardingData.length)) {
-                            _goToHome();
+                            _goToAuth();
                           } else {
                             _controller.nextPage(
                               duration: const Duration(milliseconds: 300),
@@ -150,7 +149,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   top: 40,
                   right: 20,
                   child: TextButton(
-                    onPressed: _goToHome,
+                    onPressed: _goToAuth,
                     child: const Text(
                       'Skip',
                       style: TextStyle(color: AppColors.primary, fontSize: 16),

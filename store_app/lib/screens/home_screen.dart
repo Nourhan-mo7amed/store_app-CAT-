@@ -6,6 +6,7 @@ import '../widgets/home/home_header_section.dart';
 import '../widgets/home/home_products_section.dart';
 import '../widgets/home/home_search_section.dart';
 import 'product_detail_screen.dart';
+import 'profile_screen.dart';
 import '../core/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -37,6 +38,18 @@ class _HomeView extends StatelessWidget {
             ),
           ],
         ),
+        actions: [
+          IconButton(
+            tooltip: 'Profile',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const ProfileScreen()),
+              );
+            },
+            icon: const Icon(Icons.person_outline),
+          ),
+        ],
       ),
       body: Column(
         children: [
